@@ -11,18 +11,27 @@ weather.temp = 'c';
 
 // Geocode an address.
 router.get('/search', function(req,res) {
-  var params = {address: req.query.place}
+  var params = {query: req.query.place}
   var city
-  var lon
+  var long
   var lat
-  googleMapsClient.geocode(params, function(err, response) {
+  googleMapsClient.places(params, function(err, response) {
     if (!err) {
-      res.send(response.json.results);
-      // city = response.json.results[0].address_components[0].short_name
-      // weather.get_weather_custom('city', city, 'weather').then(function(hasil){
-      //     res.send(hasil);
-      // })
-
+      // res.send(response.json.results);
+      city = response.json.results[0].name
+      lat = response.json.results[0].geometry.location.lat
+      long = response.json.results[0].geometry.location.lng
+      // console.log(city);
+      // console.log(latitude);
+      // console.log(longitude);
+      var location = {
+        longitude: long,
+        latitude: lat
+      }
+      console.log(location);
+      weather.get_weather_custom('coordinates', location, 'weather').then(function(hasil){
+          res.send(hasil);
+      })
     }
   })
 })
