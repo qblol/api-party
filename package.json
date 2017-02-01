@@ -1,0 +1,28 @@
+{
+  "name": "api-party",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qblol/api-party.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qblol/api-party/issues"
+  },
+  "homepage": "https://github.com/qblol/api-party#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "@google/maps": "^0.3.1",
+    "express": "^4.14.1",
+    "npm-openweathermap": "0.0.1"
+  }
+}
